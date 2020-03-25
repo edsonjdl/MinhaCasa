@@ -1,0 +1,17 @@
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\FunctionTests.exe.config
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\FunctionTests.exe
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\FunctionTests.pdb
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\EntityFramework.dll
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\Google.Protobuf.dll
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\MySql.Data.dll
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\EntityFramework.xml
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\Google.Protobuf.xml
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\MySql.Data.xml
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\MySql.Data.Entity.EF6.xml
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\obj\Debug\FunctionTests.csprojResolveAssemblyReference.cache
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\obj\Debug\FunctionTests.exe
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\obj\Debug\FunctionTests.pdb
+C:\Users\edson\Documents\Visual Studio 2017\Projects\MinhaCasa\FunctionTests\bin\Debug\QifApi.dll
