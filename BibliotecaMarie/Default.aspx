@@ -3,38 +3,37 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <h1>BIBLIOTECA DA MARIE</h1>
+        <p class="lead">Esta é a página da Biblioteca da Marie. Aqui todo mundo pode ver todos os livros que Marie tem. Se quiser podemos até emprestar. </p>
+        <p><a href="EmConstrucao.html" class="btn btn-primary btn-lg">Conheça a biblioteca &raquo;</a></p>
     </div>
 
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting started</h2>
+            <h2>Veja os livros da biblioteca</h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                Conheça todos os livros.
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                <a class="btn btn-default" href="EmConstrucao.html">Ver livros &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
+            <h2>Veja os filmes da biblioteca</h2>
             <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
+                Conheça todos os filmes.
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <a class="btn btn-default" href="EmConstrucao.html">Ver filmes &raquo;</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Cadastre novos itens na biblioteca</h2>
+            <p>
+                Adicione novos livros ou filmes na Biblioteca.
+            </p>
+            <p>
+                <a class="btn btn-default" href="/View/CadastroLivros">Adicionar itens &raquo;</a>
             </p>
         </div>
     </div>

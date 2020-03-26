@@ -42,12 +42,18 @@ namespace BibliotecaMarie.Controller.Database
     partial void InsertType(Type instance);
     partial void UpdateType(Type instance);
     partial void DeleteType(Type instance);
-    partial void InsertItem(Item instance);
-    partial void UpdateItem(Item instance);
-    partial void DeleteItem(Item instance);
     partial void InsertLanguage(Language instance);
     partial void UpdateLanguage(Language instance);
     partial void DeleteLanguage(Language instance);
+    partial void InsertItem(Item instance);
+    partial void UpdateItem(Item instance);
+    partial void DeleteItem(Item instance);
+    partial void InsertImagem_Item(Imagem_Item instance);
+    partial void UpdateImagem_Item(Imagem_Item instance);
+    partial void DeleteImagem_Item(Imagem_Item instance);
+    partial void InsertImagem(Imagem instance);
+    partial void UpdateImagem(Imagem instance);
+    partial void DeleteImagem(Imagem instance);
     #endregion
 		
 		public BibliotecaMarieDataContext() : 
@@ -112,6 +118,14 @@ namespace BibliotecaMarie.Controller.Database
 			}
 		}
 		
+		public System.Data.Linq.Table<Language> Languages
+		{
+			get
+			{
+				return this.GetTable<Language>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Item> Items
 		{
 			get
@@ -120,11 +134,19 @@ namespace BibliotecaMarie.Controller.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Language> Languages
+		public System.Data.Linq.Table<Imagem_Item> Imagem_Items
 		{
 			get
 			{
-				return this.GetTable<Language>();
+				return this.GetTable<Imagem_Item>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Imagem> Imagems
+		{
+			get
+			{
+				return this.GetTable<Imagem>();
 			}
 		}
 	}
@@ -639,363 +661,6 @@ namespace BibliotecaMarie.Controller.Database
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Item")]
-	public partial class Item : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _Title;
-		
-		private System.Nullable<int> _IdType;
-		
-		private System.Nullable<int> _IdStatus;
-		
-		private System.Nullable<int> _Size;
-		
-		private System.Data.Linq.Binary _Image;
-		
-		private System.Nullable<int> _IdLanguage;
-		
-		private EntitySet<Item_Cliente> _Item_Clientes;
-		
-		private EntityRef<Status> _Status;
-		
-		private EntityRef<Type> _Type;
-		
-		private EntityRef<Language> _Language;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
-    partial void OnIdTypeChanging(System.Nullable<int> value);
-    partial void OnIdTypeChanged();
-    partial void OnIdStatusChanging(System.Nullable<int> value);
-    partial void OnIdStatusChanged();
-    partial void OnSizeChanging(System.Nullable<int> value);
-    partial void OnSizeChanged();
-    partial void OnImageChanging(System.Data.Linq.Binary value);
-    partial void OnImageChanged();
-    partial void OnIdLanguageChanging(System.Nullable<int> value);
-    partial void OnIdLanguageChanged();
-    #endregion
-		
-		public Item()
-		{
-			this._Item_Clientes = new EntitySet<Item_Cliente>(new Action<Item_Cliente>(this.attach_Item_Clientes), new Action<Item_Cliente>(this.detach_Item_Clientes));
-			this._Status = default(EntityRef<Status>);
-			this._Type = default(EntityRef<Type>);
-			this._Language = default(EntityRef<Language>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(50)")]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdType", DbType="Int")]
-		public System.Nullable<int> IdType
-		{
-			get
-			{
-				return this._IdType;
-			}
-			set
-			{
-				if ((this._IdType != value))
-				{
-					if (this._Type.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdTypeChanging(value);
-					this.SendPropertyChanging();
-					this._IdType = value;
-					this.SendPropertyChanged("IdType");
-					this.OnIdTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdStatus", DbType="Int")]
-		public System.Nullable<int> IdStatus
-		{
-			get
-			{
-				return this._IdStatus;
-			}
-			set
-			{
-				if ((this._IdStatus != value))
-				{
-					if (this._Status.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdStatusChanging(value);
-					this.SendPropertyChanging();
-					this._IdStatus = value;
-					this.SendPropertyChanged("IdStatus");
-					this.OnIdStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Size", DbType="Int")]
-		public System.Nullable<int> Size
-		{
-			get
-			{
-				return this._Size;
-			}
-			set
-			{
-				if ((this._Size != value))
-				{
-					this.OnSizeChanging(value);
-					this.SendPropertyChanging();
-					this._Size = value;
-					this.SendPropertyChanged("Size");
-					this.OnSizeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdLanguage", DbType="Int")]
-		public System.Nullable<int> IdLanguage
-		{
-			get
-			{
-				return this._IdLanguage;
-			}
-			set
-			{
-				if ((this._IdLanguage != value))
-				{
-					if (this._Language.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdLanguageChanging(value);
-					this.SendPropertyChanging();
-					this._IdLanguage = value;
-					this.SendPropertyChanged("IdLanguage");
-					this.OnIdLanguageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Item_Cliente", Storage="_Item_Clientes", ThisKey="Id", OtherKey="IdItem")]
-		public EntitySet<Item_Cliente> Item_Clientes
-		{
-			get
-			{
-				return this._Item_Clientes;
-			}
-			set
-			{
-				this._Item_Clientes.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Item", Storage="_Status", ThisKey="IdStatus", OtherKey="IdStatus", IsForeignKey=true)]
-		public Status Status
-		{
-			get
-			{
-				return this._Status.Entity;
-			}
-			set
-			{
-				Status previousValue = this._Status.Entity;
-				if (((previousValue != value) 
-							|| (this._Status.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Status.Entity = null;
-						previousValue.Items.Remove(this);
-					}
-					this._Status.Entity = value;
-					if ((value != null))
-					{
-						value.Items.Add(this);
-						this._IdStatus = value.IdStatus;
-					}
-					else
-					{
-						this._IdStatus = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Status");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Type_Item", Storage="_Type", ThisKey="IdType", OtherKey="IdType", IsForeignKey=true)]
-		public Type Type
-		{
-			get
-			{
-				return this._Type.Entity;
-			}
-			set
-			{
-				Type previousValue = this._Type.Entity;
-				if (((previousValue != value) 
-							|| (this._Type.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Type.Entity = null;
-						previousValue.Items.Remove(this);
-					}
-					this._Type.Entity = value;
-					if ((value != null))
-					{
-						value.Items.Add(this);
-						this._IdType = value.IdType;
-					}
-					else
-					{
-						this._IdType = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Type");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Language_Item", Storage="_Language", ThisKey="IdLanguage", OtherKey="IdLanguage", IsForeignKey=true)]
-		public Language Language
-		{
-			get
-			{
-				return this._Language.Entity;
-			}
-			set
-			{
-				Language previousValue = this._Language.Entity;
-				if (((previousValue != value) 
-							|| (this._Language.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Language.Entity = null;
-						previousValue.Items.Remove(this);
-					}
-					this._Language.Entity = value;
-					if ((value != null))
-					{
-						value.Items.Add(this);
-						this._IdLanguage = value.IdLanguage;
-					}
-					else
-					{
-						this._IdLanguage = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Language");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Item_Clientes(Item_Cliente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_Item_Clientes(Item_Cliente entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Language")]
 	public partial class Language : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1107,6 +772,673 @@ namespace BibliotecaMarie.Controller.Database
 		{
 			this.SendPropertyChanging();
 			entity.Language = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Item")]
+	public partial class Item : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Title;
+		
+		private System.Nullable<int> _IdType;
+		
+		private System.Nullable<int> _IdStatus;
+		
+		private System.Nullable<int> _Size;
+		
+		private System.Nullable<int> _IdLanguage;
+		
+		private EntitySet<Item_Cliente> _Item_Clientes;
+		
+		private EntitySet<Imagem_Item> _Imagem_Items;
+		
+		private EntityRef<Language> _Language;
+		
+		private EntityRef<Status> _Status;
+		
+		private EntityRef<Type> _Type;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnIdTypeChanging(System.Nullable<int> value);
+    partial void OnIdTypeChanged();
+    partial void OnIdStatusChanging(System.Nullable<int> value);
+    partial void OnIdStatusChanged();
+    partial void OnSizeChanging(System.Nullable<int> value);
+    partial void OnSizeChanged();
+    partial void OnIdLanguageChanging(System.Nullable<int> value);
+    partial void OnIdLanguageChanged();
+    #endregion
+		
+		public Item()
+		{
+			this._Item_Clientes = new EntitySet<Item_Cliente>(new Action<Item_Cliente>(this.attach_Item_Clientes), new Action<Item_Cliente>(this.detach_Item_Clientes));
+			this._Imagem_Items = new EntitySet<Imagem_Item>(new Action<Imagem_Item>(this.attach_Imagem_Items), new Action<Imagem_Item>(this.detach_Imagem_Items));
+			this._Language = default(EntityRef<Language>);
+			this._Status = default(EntityRef<Status>);
+			this._Type = default(EntityRef<Type>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(50)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdType", DbType="Int")]
+		public System.Nullable<int> IdType
+		{
+			get
+			{
+				return this._IdType;
+			}
+			set
+			{
+				if ((this._IdType != value))
+				{
+					if (this._Type.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdTypeChanging(value);
+					this.SendPropertyChanging();
+					this._IdType = value;
+					this.SendPropertyChanged("IdType");
+					this.OnIdTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdStatus", DbType="Int")]
+		public System.Nullable<int> IdStatus
+		{
+			get
+			{
+				return this._IdStatus;
+			}
+			set
+			{
+				if ((this._IdStatus != value))
+				{
+					if (this._Status.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdStatusChanging(value);
+					this.SendPropertyChanging();
+					this._IdStatus = value;
+					this.SendPropertyChanged("IdStatus");
+					this.OnIdStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Size", DbType="Int")]
+		public System.Nullable<int> Size
+		{
+			get
+			{
+				return this._Size;
+			}
+			set
+			{
+				if ((this._Size != value))
+				{
+					this.OnSizeChanging(value);
+					this.SendPropertyChanging();
+					this._Size = value;
+					this.SendPropertyChanged("Size");
+					this.OnSizeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdLanguage", DbType="Int")]
+		public System.Nullable<int> IdLanguage
+		{
+			get
+			{
+				return this._IdLanguage;
+			}
+			set
+			{
+				if ((this._IdLanguage != value))
+				{
+					if (this._Language.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdLanguageChanging(value);
+					this.SendPropertyChanging();
+					this._IdLanguage = value;
+					this.SendPropertyChanged("IdLanguage");
+					this.OnIdLanguageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Item_Cliente", Storage="_Item_Clientes", ThisKey="Id", OtherKey="IdItem")]
+		public EntitySet<Item_Cliente> Item_Clientes
+		{
+			get
+			{
+				return this._Item_Clientes;
+			}
+			set
+			{
+				this._Item_Clientes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Imagem_Item", Storage="_Imagem_Items", ThisKey="Id", OtherKey="IdItem")]
+		public EntitySet<Imagem_Item> Imagem_Items
+		{
+			get
+			{
+				return this._Imagem_Items;
+			}
+			set
+			{
+				this._Imagem_Items.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Language_Item", Storage="_Language", ThisKey="IdLanguage", OtherKey="IdLanguage", IsForeignKey=true)]
+		public Language Language
+		{
+			get
+			{
+				return this._Language.Entity;
+			}
+			set
+			{
+				Language previousValue = this._Language.Entity;
+				if (((previousValue != value) 
+							|| (this._Language.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Language.Entity = null;
+						previousValue.Items.Remove(this);
+					}
+					this._Language.Entity = value;
+					if ((value != null))
+					{
+						value.Items.Add(this);
+						this._IdLanguage = value.IdLanguage;
+					}
+					else
+					{
+						this._IdLanguage = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Language");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Status_Item", Storage="_Status", ThisKey="IdStatus", OtherKey="IdStatus", IsForeignKey=true)]
+		public Status Status
+		{
+			get
+			{
+				return this._Status.Entity;
+			}
+			set
+			{
+				Status previousValue = this._Status.Entity;
+				if (((previousValue != value) 
+							|| (this._Status.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Status.Entity = null;
+						previousValue.Items.Remove(this);
+					}
+					this._Status.Entity = value;
+					if ((value != null))
+					{
+						value.Items.Add(this);
+						this._IdStatus = value.IdStatus;
+					}
+					else
+					{
+						this._IdStatus = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Status");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Type_Item", Storage="_Type", ThisKey="IdType", OtherKey="IdType", IsForeignKey=true)]
+		public Type Type
+		{
+			get
+			{
+				return this._Type.Entity;
+			}
+			set
+			{
+				Type previousValue = this._Type.Entity;
+				if (((previousValue != value) 
+							|| (this._Type.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Type.Entity = null;
+						previousValue.Items.Remove(this);
+					}
+					this._Type.Entity = value;
+					if ((value != null))
+					{
+						value.Items.Add(this);
+						this._IdType = value.IdType;
+					}
+					else
+					{
+						this._IdType = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Type");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Item_Clientes(Item_Cliente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_Item_Clientes(Item_Cliente entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
+		}
+		
+		private void attach_Imagem_Items(Imagem_Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_Imagem_Items(Imagem_Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Imagem_Item")]
+	public partial class Imagem_Item : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdImagem;
+		
+		private int _IdItem;
+		
+		private EntityRef<Item> _Item;
+		
+		private EntityRef<Imagem> _Imagem;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdImagemChanging(int value);
+    partial void OnIdImagemChanged();
+    partial void OnIdItemChanging(int value);
+    partial void OnIdItemChanged();
+    #endregion
+		
+		public Imagem_Item()
+		{
+			this._Item = default(EntityRef<Item>);
+			this._Imagem = default(EntityRef<Imagem>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdImagem", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int IdImagem
+		{
+			get
+			{
+				return this._IdImagem;
+			}
+			set
+			{
+				if ((this._IdImagem != value))
+				{
+					if (this._Imagem.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdImagemChanging(value);
+					this.SendPropertyChanging();
+					this._IdImagem = value;
+					this.SendPropertyChanged("IdImagem");
+					this.OnIdImagemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdItem", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int IdItem
+		{
+			get
+			{
+				return this._IdItem;
+			}
+			set
+			{
+				if ((this._IdItem != value))
+				{
+					if (this._Item.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdItemChanging(value);
+					this.SendPropertyChanging();
+					this._IdItem = value;
+					this.SendPropertyChanged("IdItem");
+					this.OnIdItemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Imagem_Item", Storage="_Item", ThisKey="IdItem", OtherKey="Id", IsForeignKey=true)]
+		public Item Item
+		{
+			get
+			{
+				return this._Item.Entity;
+			}
+			set
+			{
+				Item previousValue = this._Item.Entity;
+				if (((previousValue != value) 
+							|| (this._Item.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Item.Entity = null;
+						previousValue.Imagem_Items.Remove(this);
+					}
+					this._Item.Entity = value;
+					if ((value != null))
+					{
+						value.Imagem_Items.Add(this);
+						this._IdItem = value.Id;
+					}
+					else
+					{
+						this._IdItem = default(int);
+					}
+					this.SendPropertyChanged("Item");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Imagem_Imagem_Item", Storage="_Imagem", ThisKey="IdImagem", OtherKey="IdImagem", IsForeignKey=true)]
+		public Imagem Imagem
+		{
+			get
+			{
+				return this._Imagem.Entity;
+			}
+			set
+			{
+				Imagem previousValue = this._Imagem.Entity;
+				if (((previousValue != value) 
+							|| (this._Imagem.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Imagem.Entity = null;
+						previousValue.Imagem_Items.Remove(this);
+					}
+					this._Imagem.Entity = value;
+					if ((value != null))
+					{
+						value.Imagem_Items.Add(this);
+						this._IdImagem = value.IdImagem;
+					}
+					else
+					{
+						this._IdImagem = default(int);
+					}
+					this.SendPropertyChanged("Imagem");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Imagem")]
+	public partial class Imagem : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdImagem;
+		
+		private System.Data.Linq.Binary _imagem1;
+		
+		private string _filename;
+		
+		private EntitySet<Imagem_Item> _Imagem_Items;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdImagemChanging(int value);
+    partial void OnIdImagemChanged();
+    partial void Onimagem1Changing(System.Data.Linq.Binary value);
+    partial void Onimagem1Changed();
+    partial void OnfilenameChanging(string value);
+    partial void OnfilenameChanged();
+    #endregion
+		
+		public Imagem()
+		{
+			this._Imagem_Items = new EntitySet<Imagem_Item>(new Action<Imagem_Item>(this.attach_Imagem_Items), new Action<Imagem_Item>(this.detach_Imagem_Items));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdImagem", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdImagem
+		{
+			get
+			{
+				return this._IdImagem;
+			}
+			set
+			{
+				if ((this._IdImagem != value))
+				{
+					this.OnIdImagemChanging(value);
+					this.SendPropertyChanging();
+					this._IdImagem = value;
+					this.SendPropertyChanged("IdImagem");
+					this.OnIdImagemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="imagem", Storage="_imagem1", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary imagem1
+		{
+			get
+			{
+				return this._imagem1;
+			}
+			set
+			{
+				if ((this._imagem1 != value))
+				{
+					this.Onimagem1Changing(value);
+					this.SendPropertyChanging();
+					this._imagem1 = value;
+					this.SendPropertyChanged("imagem1");
+					this.Onimagem1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_filename", DbType="VarChar(15)")]
+		public string filename
+		{
+			get
+			{
+				return this._filename;
+			}
+			set
+			{
+				if ((this._filename != value))
+				{
+					this.OnfilenameChanging(value);
+					this.SendPropertyChanging();
+					this._filename = value;
+					this.SendPropertyChanged("filename");
+					this.OnfilenameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Imagem_Imagem_Item", Storage="_Imagem_Items", ThisKey="IdImagem", OtherKey="IdImagem")]
+		public EntitySet<Imagem_Item> Imagem_Items
+		{
+			get
+			{
+				return this._Imagem_Items;
+			}
+			set
+			{
+				this._Imagem_Items.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Imagem_Items(Imagem_Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Imagem = this;
+		}
+		
+		private void detach_Imagem_Items(Imagem_Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Imagem = null;
 		}
 	}
 }

@@ -8,5 +8,6 @@ namespace BibliotecaMarie.Model
     public class Livro : Item
     {
         public int nPages;
+        public string language;
     }
 }

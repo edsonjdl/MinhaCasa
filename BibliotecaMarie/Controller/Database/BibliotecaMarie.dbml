@@ -29,6 +29,13 @@
       <Association Name="Type_Item" Member="Items" ThisKey="IdType" OtherKey="IdType" Type="Item" />
     </Type>
   </Table>
+  <Table Name="dbo.Language" Member="Languages">
+    <Type Name="Language">
+      <Column Name="IdLanguage" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Language" Member="Language1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Language_Item" Member="Items" ThisKey="IdLanguage" OtherKey="IdLanguage" Type="Item" />
+    </Type>
+  </Table>
   <Table Name="dbo.Item" Member="Items">
     <Type Name="Item">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -36,19 +43,28 @@
       <Column Name="IdType" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IdStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Size" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="IdLanguage" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Item_Item_Cliente" Member="Item_Clientes" ThisKey="Id" OtherKey="IdItem" Type="Item_Cliente" />
+      <Association Name="Item_Imagem_Item" Member="Imagem_Items" ThisKey="Id" OtherKey="IdItem" Type="Imagem_Item" />
+      <Association Name="Language_Item" Member="Language" ThisKey="IdLanguage" OtherKey="IdLanguage" Type="Language" IsForeignKey="true" />
       <Association Name="Status_Item" Member="Status" ThisKey="IdStatus" OtherKey="IdStatus" Type="Status" IsForeignKey="true" />
       <Association Name="Type_Item" Member="Type" ThisKey="IdType" OtherKey="IdType" Type="Type" IsForeignKey="true" />
-      <Association Name="Language_Item" Member="Language" ThisKey="IdLanguage" OtherKey="IdLanguage" Type="Language" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Language" Member="Languages">
-    <Type Name="Language">
-      <Column Name="IdLanguage" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Language" Member="Language1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Association Name="Language_Item" Member="Items" ThisKey="IdLanguage" OtherKey="IdLanguage" Type="Item" />
+  <Table Name="dbo.Imagem_Item" Member="Imagem_Items">
+    <Type Name="Imagem_Item">
+      <Column Name="IdImagem" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdItem" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Item_Imagem_Item" Member="Item" ThisKey="IdItem" OtherKey="Id" Type="Item" IsForeignKey="true" />
+      <Association Name="Imagem_Imagem_Item" Member="Imagem" ThisKey="IdImagem" OtherKey="IdImagem" Type="Imagem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Imagem" Member="Imagems">
+    <Type Name="Imagem">
+      <Column Name="IdImagem" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="imagem" Member="imagem1" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="filename" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Association Name="Imagem_Imagem_Item" Member="Imagem_Items" ThisKey="IdImagem" OtherKey="IdImagem" Type="Imagem_Item" />
     </Type>
   </Table>
 </Database>

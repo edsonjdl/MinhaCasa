@@ -8,5 +8,6 @@ namespace BibliotecaMarie.Model
     public class Filme : Item
     {
         public int duration;
+        public string language;
     }
 }

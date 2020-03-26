@@ -8,6 +8,9 @@ namespace BibliotecaMarie.Controller.Database
 {
     public class RecordItem
     {
+        private const int statusInicialLivro = 1;
+        private const int tipoLivro = 1;
+
         public static void AdicionarLivro(Livro livro)
         {
             BibliotecaMarieDataContext db = new BibliotecaMarieDataContext();
@@ -15,9 +18,9 @@ namespace BibliotecaMarie.Controller.Database
             Item novoLivro = new Item();
             novoLivro.Title = livro.name;
             novoLivro.Size = livro.nPages;
-            novoLivro.IdStatus = livro.idStatus;
-            novoLivro.Image = livro.image;
-            novoLivro.IdType = livro.idType;
+            novoLivro.IdStatus = statusInicialLivro; //Disponível
+            //novoLivro.Image = livro.image;
+            novoLivro.IdType = tipoLivro;
 
             db.Items.InsertOnSubmit(novoLivro);
             db.SubmitChanges();
