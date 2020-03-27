@@ -33,6 +33,15 @@ namespace BibliotecaMarie.View
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
+        /// nomeLivro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image nomeLivro;
+
+        /// <summary>
         /// tituloLivro control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace BibliotecaMarie.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tituloLivro;
+
+        /// <summary>
+        /// langLivro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image langLivro;
 
         /// <summary>
         /// listaIdiomas control.
@@ -51,6 +69,15 @@ namespace BibliotecaMarie.View
         protected global::System.Web.UI.WebControls.DropDownList listaIdiomas;
 
         /// <summary>
+        /// nPageLivro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image nPageLivro;
+
+        /// <summary>
         /// nPaginas control.
         /// </summary>
         /// <remarks>
@@ -60,12 +87,21 @@ namespace BibliotecaMarie.View
         protected global::System.Web.UI.WebControls.TextBox nPaginas;
 
         /// <summary>
-        /// cadastroLiv control.
+        /// cadastroLiv2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cadastroLiv;
+        protected global::System.Web.UI.WebControls.ImageButton cadastroLiv2;
+
+        /// <summary>
+        /// cancelar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton cancelar;
     }
 }

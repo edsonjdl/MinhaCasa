@@ -40,7 +40,7 @@ namespace BibliotecaMarie.View
         public Stream Display(string ImId)
         {
             var ss = (from s in db.Imagems where s.IdImagem == Convert.ToInt32(ImId) select s).First();
-            return new MemoryStream(ss.imagem1.ToArray());
+            return new MemoryStream(ss.Imagem1.ToArray());
         }
     }
 }

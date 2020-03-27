@@ -134,7 +134,15 @@
     <None Include="Controller\Database\BibliotecaMarie.dbml.layout">
       <DependentUpon>BibliotecaMarie.dbml</DependentUpon>
     </None>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\btn_Cancelar.png" />
+    <Content Include="Images\btn_Registrar.png" />
+    <Content Include="Images\langLivro.png" />
+    <Content Include="Images\nomeLivro.png" />
+    <Content Include="Images\nPageLivro.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

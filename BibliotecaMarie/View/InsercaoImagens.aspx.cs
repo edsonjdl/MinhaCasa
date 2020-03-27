@@ -19,6 +19,7 @@ namespace BibliotecaMarie.View
         protected void Page_Load(object sender, EventArgs e)
         {
             DisplayImage();
+            Label1.Text = Request.Browser.Browser;
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -34,7 +35,7 @@ namespace BibliotecaMarie.View
 
                 Byte[] imgbyte = ImageUpload.FileBytes;
                 Binary Binarydta = new Binary(imgbyte);
-                img.imagem1 = Binarydta; // this is the converted image data
+                img.Imagem1 = Binarydta; // this is the converted image data
                 if (txtImageName.Text.Length == 0)
                 {
                     nomeImagem = ImageUpload.FileName;

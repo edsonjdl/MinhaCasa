@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="BibliotecaMarie" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\edson\\Source\\Repos\\MinhaCasa\\BibliotecaMarie\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\edson\\Source\\Repos\\MinhaCasa\\BibliotecaMarie\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="BibliotecaMarieConnectionString-Web.config Connection String" description="" value="Data Source=EDSERVER;Initial Catalog=BibliotecaMarie;User ID=admin;Password=edadmin27" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\edson\\Source\\Repos\\MinhaCasa\\BibliotecaMarie\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BibliotecaMarieConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

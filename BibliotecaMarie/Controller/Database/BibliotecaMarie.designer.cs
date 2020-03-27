@@ -45,15 +45,12 @@ namespace BibliotecaMarie.Controller.Database
     partial void InsertLanguage(Language instance);
     partial void UpdateLanguage(Language instance);
     partial void DeleteLanguage(Language instance);
-    partial void InsertItem(Item instance);
-    partial void UpdateItem(Item instance);
-    partial void DeleteItem(Item instance);
-    partial void InsertImagem_Item(Imagem_Item instance);
-    partial void UpdateImagem_Item(Imagem_Item instance);
-    partial void DeleteImagem_Item(Imagem_Item instance);
     partial void InsertImagem(Imagem instance);
     partial void UpdateImagem(Imagem instance);
     partial void DeleteImagem(Imagem instance);
+    partial void InsertItem(Item instance);
+    partial void UpdateItem(Item instance);
+    partial void DeleteItem(Item instance);
     #endregion
 		
 		public BibliotecaMarieDataContext() : 
@@ -126,27 +123,19 @@ namespace BibliotecaMarie.Controller.Database
 			}
 		}
 		
-		public System.Data.Linq.Table<Item> Items
-		{
-			get
-			{
-				return this.GetTable<Item>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Imagem_Item> Imagem_Items
-		{
-			get
-			{
-				return this.GetTable<Imagem_Item>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Imagem> Imagems
 		{
 			get
 			{
 				return this.GetTable<Imagem>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Item> Items
+		{
+			get
+			{
+				return this.GetTable<Item>();
 			}
 		}
 	}
@@ -775,6 +764,144 @@ namespace BibliotecaMarie.Controller.Database
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Imagem")]
+	public partial class Imagem : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdImagem;
+		
+		private System.Data.Linq.Binary _Imagem1;
+		
+		private string _filename;
+		
+		private EntitySet<Item> _Items;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdImagemChanging(int value);
+    partial void OnIdImagemChanged();
+    partial void OnImagem1Changing(System.Data.Linq.Binary value);
+    partial void OnImagem1Changed();
+    partial void OnfilenameChanging(string value);
+    partial void OnfilenameChanged();
+    #endregion
+		
+		public Imagem()
+		{
+			this._Items = new EntitySet<Item>(new Action<Item>(this.attach_Items), new Action<Item>(this.detach_Items));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdImagem", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdImagem
+		{
+			get
+			{
+				return this._IdImagem;
+			}
+			set
+			{
+				if ((this._IdImagem != value))
+				{
+					this.OnIdImagemChanging(value);
+					this.SendPropertyChanging();
+					this._IdImagem = value;
+					this.SendPropertyChanged("IdImagem");
+					this.OnIdImagemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Imagem", Storage="_Imagem1", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Imagem1
+		{
+			get
+			{
+				return this._Imagem1;
+			}
+			set
+			{
+				if ((this._Imagem1 != value))
+				{
+					this.OnImagem1Changing(value);
+					this.SendPropertyChanging();
+					this._Imagem1 = value;
+					this.SendPropertyChanged("Imagem1");
+					this.OnImagem1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_filename", DbType="VarChar(20)")]
+		public string filename
+		{
+			get
+			{
+				return this._filename;
+			}
+			set
+			{
+				if ((this._filename != value))
+				{
+					this.OnfilenameChanging(value);
+					this.SendPropertyChanging();
+					this._filename = value;
+					this.SendPropertyChanged("filename");
+					this.OnfilenameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Imagem_Item", Storage="_Items", ThisKey="IdImagem", OtherKey="IdImagem")]
+		public EntitySet<Item> Items
+		{
+			get
+			{
+				return this._Items;
+			}
+			set
+			{
+				this._Items.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Items(Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Imagem = this;
+		}
+		
+		private void detach_Items(Item entity)
+		{
+			this.SendPropertyChanging();
+			entity.Imagem = null;
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Item")]
 	public partial class Item : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -793,9 +920,11 @@ namespace BibliotecaMarie.Controller.Database
 		
 		private System.Nullable<int> _IdLanguage;
 		
+		private System.Nullable<int> _IdImagem;
+		
 		private EntitySet<Item_Cliente> _Item_Clientes;
 		
-		private EntitySet<Imagem_Item> _Imagem_Items;
+		private EntityRef<Imagem> _Imagem;
 		
 		private EntityRef<Language> _Language;
 		
@@ -819,12 +948,14 @@ namespace BibliotecaMarie.Controller.Database
     partial void OnSizeChanged();
     partial void OnIdLanguageChanging(System.Nullable<int> value);
     partial void OnIdLanguageChanged();
+    partial void OnIdImagemChanging(System.Nullable<int> value);
+    partial void OnIdImagemChanged();
     #endregion
 		
 		public Item()
 		{
 			this._Item_Clientes = new EntitySet<Item_Cliente>(new Action<Item_Cliente>(this.attach_Item_Clientes), new Action<Item_Cliente>(this.detach_Item_Clientes));
-			this._Imagem_Items = new EntitySet<Imagem_Item>(new Action<Imagem_Item>(this.attach_Imagem_Items), new Action<Imagem_Item>(this.detach_Imagem_Items));
+			this._Imagem = default(EntityRef<Imagem>);
 			this._Language = default(EntityRef<Language>);
 			this._Status = default(EntityRef<Status>);
 			this._Type = default(EntityRef<Type>);
@@ -963,6 +1094,30 @@ namespace BibliotecaMarie.Controller.Database
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdImagem", DbType="Int")]
+		public System.Nullable<int> IdImagem
+		{
+			get
+			{
+				return this._IdImagem;
+			}
+			set
+			{
+				if ((this._IdImagem != value))
+				{
+					if (this._Imagem.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdImagemChanging(value);
+					this.SendPropertyChanging();
+					this._IdImagem = value;
+					this.SendPropertyChanged("IdImagem");
+					this.OnIdImagemChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Item_Cliente", Storage="_Item_Clientes", ThisKey="Id", OtherKey="IdItem")]
 		public EntitySet<Item_Cliente> Item_Clientes
 		{
@@ -976,16 +1131,37 @@ namespace BibliotecaMarie.Controller.Database
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Imagem_Item", Storage="_Imagem_Items", ThisKey="Id", OtherKey="IdItem")]
-		public EntitySet<Imagem_Item> Imagem_Items
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Imagem_Item", Storage="_Imagem", ThisKey="IdImagem", OtherKey="IdImagem", IsForeignKey=true)]
+		public Imagem Imagem
 		{
 			get
 			{
-				return this._Imagem_Items;
+				return this._Imagem.Entity;
 			}
 			set
 			{
-				this._Imagem_Items.Assign(value);
+				Imagem previousValue = this._Imagem.Entity;
+				if (((previousValue != value) 
+							|| (this._Imagem.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Imagem.Entity = null;
+						previousValue.Items.Remove(this);
+					}
+					this._Imagem.Entity = value;
+					if ((value != null))
+					{
+						value.Items.Add(this);
+						this._IdImagem = value.IdImagem;
+					}
+					else
+					{
+						this._IdImagem = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Imagem");
+				}
 			}
 		}
 		
@@ -1121,324 +1297,6 @@ namespace BibliotecaMarie.Controller.Database
 		{
 			this.SendPropertyChanging();
 			entity.Item = null;
-		}
-		
-		private void attach_Imagem_Items(Imagem_Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_Imagem_Items(Imagem_Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Imagem_Item")]
-	public partial class Imagem_Item : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdImagem;
-		
-		private int _IdItem;
-		
-		private EntityRef<Item> _Item;
-		
-		private EntityRef<Imagem> _Imagem;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdImagemChanging(int value);
-    partial void OnIdImagemChanged();
-    partial void OnIdItemChanging(int value);
-    partial void OnIdItemChanged();
-    #endregion
-		
-		public Imagem_Item()
-		{
-			this._Item = default(EntityRef<Item>);
-			this._Imagem = default(EntityRef<Imagem>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdImagem", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int IdImagem
-		{
-			get
-			{
-				return this._IdImagem;
-			}
-			set
-			{
-				if ((this._IdImagem != value))
-				{
-					if (this._Imagem.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdImagemChanging(value);
-					this.SendPropertyChanging();
-					this._IdImagem = value;
-					this.SendPropertyChanged("IdImagem");
-					this.OnIdImagemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdItem", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int IdItem
-		{
-			get
-			{
-				return this._IdItem;
-			}
-			set
-			{
-				if ((this._IdItem != value))
-				{
-					if (this._Item.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdItemChanging(value);
-					this.SendPropertyChanging();
-					this._IdItem = value;
-					this.SendPropertyChanged("IdItem");
-					this.OnIdItemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Imagem_Item", Storage="_Item", ThisKey="IdItem", OtherKey="Id", IsForeignKey=true)]
-		public Item Item
-		{
-			get
-			{
-				return this._Item.Entity;
-			}
-			set
-			{
-				Item previousValue = this._Item.Entity;
-				if (((previousValue != value) 
-							|| (this._Item.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Item.Entity = null;
-						previousValue.Imagem_Items.Remove(this);
-					}
-					this._Item.Entity = value;
-					if ((value != null))
-					{
-						value.Imagem_Items.Add(this);
-						this._IdItem = value.Id;
-					}
-					else
-					{
-						this._IdItem = default(int);
-					}
-					this.SendPropertyChanged("Item");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Imagem_Imagem_Item", Storage="_Imagem", ThisKey="IdImagem", OtherKey="IdImagem", IsForeignKey=true)]
-		public Imagem Imagem
-		{
-			get
-			{
-				return this._Imagem.Entity;
-			}
-			set
-			{
-				Imagem previousValue = this._Imagem.Entity;
-				if (((previousValue != value) 
-							|| (this._Imagem.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Imagem.Entity = null;
-						previousValue.Imagem_Items.Remove(this);
-					}
-					this._Imagem.Entity = value;
-					if ((value != null))
-					{
-						value.Imagem_Items.Add(this);
-						this._IdImagem = value.IdImagem;
-					}
-					else
-					{
-						this._IdImagem = default(int);
-					}
-					this.SendPropertyChanged("Imagem");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Imagem")]
-	public partial class Imagem : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdImagem;
-		
-		private System.Data.Linq.Binary _imagem1;
-		
-		private string _filename;
-		
-		private EntitySet<Imagem_Item> _Imagem_Items;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdImagemChanging(int value);
-    partial void OnIdImagemChanged();
-    partial void Onimagem1Changing(System.Data.Linq.Binary value);
-    partial void Onimagem1Changed();
-    partial void OnfilenameChanging(string value);
-    partial void OnfilenameChanged();
-    #endregion
-		
-		public Imagem()
-		{
-			this._Imagem_Items = new EntitySet<Imagem_Item>(new Action<Imagem_Item>(this.attach_Imagem_Items), new Action<Imagem_Item>(this.detach_Imagem_Items));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdImagem", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdImagem
-		{
-			get
-			{
-				return this._IdImagem;
-			}
-			set
-			{
-				if ((this._IdImagem != value))
-				{
-					this.OnIdImagemChanging(value);
-					this.SendPropertyChanging();
-					this._IdImagem = value;
-					this.SendPropertyChanged("IdImagem");
-					this.OnIdImagemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="imagem", Storage="_imagem1", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary imagem1
-		{
-			get
-			{
-				return this._imagem1;
-			}
-			set
-			{
-				if ((this._imagem1 != value))
-				{
-					this.Onimagem1Changing(value);
-					this.SendPropertyChanging();
-					this._imagem1 = value;
-					this.SendPropertyChanged("imagem1");
-					this.Onimagem1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_filename", DbType="VarChar(15)")]
-		public string filename
-		{
-			get
-			{
-				return this._filename;
-			}
-			set
-			{
-				if ((this._filename != value))
-				{
-					this.OnfilenameChanging(value);
-					this.SendPropertyChanging();
-					this._filename = value;
-					this.SendPropertyChanged("filename");
-					this.OnfilenameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Imagem_Imagem_Item", Storage="_Imagem_Items", ThisKey="IdImagem", OtherKey="IdImagem")]
-		public EntitySet<Imagem_Item> Imagem_Items
-		{
-			get
-			{
-				return this._Imagem_Items;
-			}
-			set
-			{
-				this._Imagem_Items.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Imagem_Items(Imagem_Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Imagem = this;
-		}
-		
-		private void detach_Imagem_Items(Imagem_Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Imagem = null;
 		}
 	}
 }
