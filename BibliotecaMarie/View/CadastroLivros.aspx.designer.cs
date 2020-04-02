@@ -87,6 +87,15 @@ namespace BibliotecaMarie.View
         protected global::System.Web.UI.WebControls.TextBox nPaginas;
 
         /// <summary>
+        /// rowTablet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow rowTablet;
+
+        /// <summary>
         /// cadastroLiv2 control.
         /// </summary>
         /// <remarks>

@@ -14,30 +14,32 @@
 
             <asp:Table ID="Table1" Height="400px" Width="600px"   runat="server">
                 <asp:TableRow>
-                    <asp:TableCell ColumnSpan="4">
+                    <asp:TableCell ColumnSpan="2">
                         <asp:Image ID="nomeLivro" ImageUrl="~/Images/nomeLivro.png" runat="server" /></asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell ColumnSpan="4">
+                    <asp:TableCell ColumnSpan="2">
                         <asp:TextBox ID="tituloLivro" style="text-align:center;" Font-Size="X-Large" Width="650px" Height ="150px" runat="server"></asp:TextBox></asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell ColumnSpan="4">
+                    <asp:TableCell ColumnSpan="2">
                         <asp:Image ID="langLivro" ImageUrl="~/Images/langLivro.png" runat="server" />
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell ColumnSpan="4">
+                    <asp:TableCell ColumnSpan="2">
                         <asp:DropDownList ID="listaIdiomas" style="padding-left: 250px;" Font-Size="XX-Large" Width="650px" Height ="77px" runat="server"></asp:DropDownList>
                     </asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell ColumnSpan="4">
+                    <asp:TableCell ColumnSpan="2">
                         <asp:Image ID="nPageLivro" ImageUrl="~/Images/nPageLivro.png" runat="server" /></asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow>
-                    <asp:TableCell ColumnSpan="4">
+                    <asp:TableCell ColumnSpan="2">
                         <asp:TextBox ID="nPaginas" style="text-align:center;" Font-Size="XX-Large" Width="650px" Height ="77px" runat="server"></asp:TextBox></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow ID="rowTablet">
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>

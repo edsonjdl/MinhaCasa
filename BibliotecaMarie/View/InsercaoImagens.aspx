@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InsercaoImagens.aspx.cs" Inherits="BibliotecaMarie.View.InsercaoImagens" %>
+﻿<%@ Page Title="Envio de fotos" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="InsercaoImagens.aspx.cs" Inherits="BibliotecaMarie.View.InsercaoImagens" %>
 
 <!DOCTYPE html>
 

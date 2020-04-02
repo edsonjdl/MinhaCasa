@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BibliotecaMarie._Default" %>
+﻿<%@ Page Title="Biblioteca da Marie" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="BibliotecaMarie._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -15,7 +15,7 @@
                 Conheça todos os livros.
             </p>
             <p>
-                <a class="btn btn-default" href="EmConstrucao.html">Ver livros &raquo;</a>
+                <a class="btn btn-default" href="View/ListaLivros.aspx">Ver livros &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -34,6 +34,15 @@
             </p>
             <p>
                 <a class="btn btn-default" href="/View/CadastroLivros">Adicionar itens &raquo;</a>
+            </p>
+        </div>
+                <div class="col-md-4">
+            <h2>Escola Tournesol</h2>
+            <p>
+                Deveres enviados pela professora.
+            </p>
+            <p>
+                <a class="btn btn-default" href="View/ListaAtividades.aspx">Ver Deveres &raquo;</a>
             </p>
         </div>
     </div>

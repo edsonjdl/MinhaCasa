@@ -21,6 +21,7 @@ namespace BibliotecaMarie.Controller.Database
             novoLivro.IdStatus = statusInicialLivro; //Disponível
             //novoLivro.Image = livro.image;
             novoLivro.IdType = tipoLivro;
+            novoLivro.IdLanguage = livro.language;
 
             db.Items.InsertOnSubmit(novoLivro);
             db.SubmitChanges();

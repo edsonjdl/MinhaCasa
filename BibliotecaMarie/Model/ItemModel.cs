@@ -6,7 +6,7 @@ using System.Web;
 
 namespace BibliotecaMarie.Model
 {
-    public class Item
+    public class ItemModel
     {
         public int id;
         public string name;

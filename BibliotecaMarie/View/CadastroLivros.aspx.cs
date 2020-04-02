@@ -13,6 +13,7 @@ namespace BibliotecaMarie.View
     public partial class CadastroLivros : System.Web.UI.Page
     {
         BibliotecaMarieDataContext db = new BibliotecaMarieDataContext();
+        private const string navTablet = "Safari";
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -36,8 +37,23 @@ namespace BibliotecaMarie.View
                 }
 
                 listaIdiomas.SelectedValue = "IdLanguage";
+
+                string browser = Request.Browser.Browser;
+
+                if (browser.Equals(navTablet))
+                {
+                    TableCell cell1 = new TableCell();
+                    TableCell cell2 = new TableCell();
+
+                    cell1.Text = "x";
+                    cell2.Text = "y";
+
+                    rowTablet.Cells.Add(cell1);
+                    rowTablet.Cells.Add(cell2);
+                }
             }
-         
+
+
         }
 
         public void CadastrarLivro(object sender, EventArgs e)
@@ -45,7 +61,7 @@ namespace BibliotecaMarie.View
             Livro livro = new Livro();
 
             livro.name = tituloLivro.Text;
-            livro.language = listaIdiomas.SelectedIndex;
+            livro.language = Int32.Parse(listaIdiomas.SelectedValue);
             livro.nPages = Int32.Parse(nPaginas.Text);
 
             RecordItem.AdicionarLivro(livro);

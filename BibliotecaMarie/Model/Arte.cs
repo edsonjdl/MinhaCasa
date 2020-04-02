@@ -5,7 +5,7 @@ using System.Web;
 
 namespace BibliotecaMarie.Model
 {
-    public class Arte : Item
+    public class Arte : ItemModel
     {
         public int year;
     }

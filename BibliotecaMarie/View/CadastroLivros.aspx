@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CadastroLivros.aspx.cs" Inherits="BibliotecaMarie.View.CadastroLivros" %>
+﻿<%@ Page Title="Cadastro de Livros" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CadastroLivros.aspx.cs" Inherits="BibliotecaMarie.View.CadastroLivros" %>
+
 
 <!DOCTYPE html>
 
@@ -38,6 +39,8 @@
                 <asp:TableRow>
                     <asp:TableCell ColumnSpan="2">
                         <asp:TextBox ID="nPaginas" style="text-align:center;" Font-Size="XX-Large" Width="650px" Height ="77px" runat="server"></asp:TextBox></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow ID="rowTablet">
                 </asp:TableRow>
                 <asp:TableRow>
                     <asp:TableCell>
