@@ -15,15 +15,6 @@ namespace BibliotecaMarie.View
     {
 
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
         /// Table1 control.
         /// </summary>
         /// <remarks>
@@ -87,13 +78,31 @@ namespace BibliotecaMarie.View
         protected global::System.Web.UI.WebControls.TextBox nPaginas;
 
         /// <summary>
-        /// rowTablet control.
+        /// rowTablet1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableRow rowTablet;
+        protected global::System.Web.UI.WebControls.TableRow rowTablet1;
+
+        /// <summary>
+        /// rowTablet2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow rowTablet2;
+
+        /// <summary>
+        /// ImageUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
 
         /// <summary>
         /// cadastroLiv2 control.

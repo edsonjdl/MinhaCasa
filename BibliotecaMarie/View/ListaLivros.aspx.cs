@@ -40,7 +40,22 @@ namespace BibliotecaMarie.View
                     }
                 }
 
-            //}
+            
+        }
+
+
+        // Código para trazer imagens e exibí-las numa tabela
+        public void DisplayImage()
+        {
+            var vv = from v in db.Imagems
+                     select new
+                     {
+                         v.filename,
+                         v.IdImagem,
+                     };
+            //??
+            //GrdDispalyImage.DataSource = vv;
+           // GrdDispalyImage.DataBind();
         }
 
     }

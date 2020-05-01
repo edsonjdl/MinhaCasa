@@ -2,6 +2,7 @@
 using BibliotecaMarie.Model;
 using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -40,16 +41,11 @@ namespace BibliotecaMarie.View
 
                 string browser = Request.Browser.Browser;
 
-                if (browser.Equals(navTablet))
+                if (!browser.Equals(navTablet))
                 {
-                    TableCell cell1 = new TableCell();
-                    TableCell cell2 = new TableCell();
+                    rowTablet1.Visible = false;
+                    rowTablet2.Visible = false;
 
-                    cell1.Text = "x";
-                    cell2.Text = "y";
-
-                    rowTablet.Cells.Add(cell1);
-                    rowTablet.Cells.Add(cell2);
                 }
             }
 
@@ -59,10 +55,42 @@ namespace BibliotecaMarie.View
         public void CadastrarLivro(object sender, EventArgs e)
         {
             Livro livro = new Livro();
-
             livro.name = tituloLivro.Text;
             livro.language = Int32.Parse(listaIdiomas.SelectedValue);
             livro.nPages = Int32.Parse(nPaginas.Text);
+
+            if (ImageUpload.HasFile && ImageUpload.PostedFile.ContentLength > 0)
+            {
+                // Create object of table
+                Imagem img = new Imagem();
+                //string nomeImagem = tituloLivro.Text;
+                img.filename = tituloLivro.Text;
+
+                //Devido à limitação imposta no tamanho do nome da imagem:
+                if (img.filename.Length > 20)
+                {
+                    img.filename = tituloLivro.Text.Substring(0,19);
+                }
+
+                // Create a byte array to store the binary image data
+
+                Byte[] imgbyte = ImageUpload.FileBytes;
+                Binary Binarydta = new Binary(imgbyte);
+                img.Imagem1 = Binarydta; // this is the converted image data
+                //if (tituloLivro.Text.Length == 0)
+                //{
+                //    nomeImagem = ImageUpload.FileName;
+                //    img.filename = ImageUpload.FileName;
+                //}
+
+                //db.Imagems.InsertOnSubmit(img);
+                //db.SubmitChanges();
+                //??
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertmessage", "javascript:alert('" + img.filename + " Imagem registrada com sucesso')", true);
+                tituloLivro.Text = "";
+                livro.imagem = img;
+            }
+            
 
             RecordItem.AdicionarLivro(livro);
 

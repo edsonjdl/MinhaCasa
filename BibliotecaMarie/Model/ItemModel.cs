@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaMarie.Controller.Database;
+using System;
 using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace BibliotecaMarie.Model
         public string name;
         public int idStatus;
         public int idType;
-        public Binary image;
+        public Imagem imagem;
         
         //public int classification;
 

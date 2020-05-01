@@ -19,7 +19,7 @@ namespace BibliotecaMarie.Controller.Database
             novoLivro.Title = livro.name;
             novoLivro.Size = livro.nPages;
             novoLivro.IdStatus = statusInicialLivro; //Disponível
-            //novoLivro.Image = livro.image;
+            novoLivro.Imagem = livro.imagem;
             novoLivro.IdType = tipoLivro;
             novoLivro.IdLanguage = livro.language;
 

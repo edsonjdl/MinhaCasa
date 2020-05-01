@@ -45,6 +45,18 @@
                 <a class="btn btn-default" href="View/ListaAtividades.aspx">Ver Deveres &raquo;</a>
             </p>
         </div>
+
+                        <div class="col-md-4">
+            <h2>Prática de Leitura</h2>
+            <p>
+                Depois de ler as estórias, você deverá contá-las ao papai ou a mamãe usando as suas palavras.
+            </p>
+            <p>
+                <a class="btn btn-default" href="View/Leitura.aspx">Comece à ler &raquo;</a>
+            </p>
+        </div>
+
+
     </div>
 
 </asp:Content>

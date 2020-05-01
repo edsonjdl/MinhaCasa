@@ -1,17 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListaLivros.aspx.cs" Inherits="BibliotecaMarie.View.ListaLivros" %>
+﻿<%@ Page Title="Lista de livros" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="ListaLivros.aspx.cs" Inherits="BibliotecaMarie.View.ListaLivros" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <h1>Lista de Livros</h1>
+    <br />
+    <asp:Table ID="listaLivros" runat="server">
+    </asp:Table>
 
-            <asp:Table ID="listaLivros" runat="server">
-
-            </asp:Table>
-
-  
-</body>
-</html>
+</asp:Content>
