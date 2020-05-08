@@ -42,6 +42,15 @@ namespace BibliotecaMarie.View
         protected global::System.Web.UI.WebControls.TextBox tituloLivro;
 
         /// <summary>
+        /// Req1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Req1;
+
+        /// <summary>
         /// langLivro control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace BibliotecaMarie.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList listaIdiomas;
+
+        /// <summary>
+        /// Req2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Req2;
 
         /// <summary>
         /// nPageLivro control.
@@ -78,6 +96,24 @@ namespace BibliotecaMarie.View
         protected global::System.Web.UI.WebControls.TextBox nPaginas;
 
         /// <summary>
+        /// Req31 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Req31;
+
+        /// <summary>
+        /// Comp32 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator Comp32;
+
+        /// <summary>
         /// rowTablet1 control.
         /// </summary>
         /// <remarks>
@@ -87,13 +123,13 @@ namespace BibliotecaMarie.View
         protected global::System.Web.UI.WebControls.TableRow rowTablet1;
 
         /// <summary>
-        /// rowTablet2 control.
+        /// escolherFoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableRow rowTablet2;
+        protected global::System.Web.UI.WebControls.Image escolherFoto;
 
         /// <summary>
         /// ImageUpload control.
@@ -103,6 +139,15 @@ namespace BibliotecaMarie.View
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
+
+        /// <summary>
+        /// Req4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Req4;
 
         /// <summary>
         /// cadastroLiv2 control.

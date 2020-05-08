@@ -128,6 +128,8 @@
     <Content Include="Deveres\suggestions_files\image002.jpg" />
     <Content Include="Deveres\suggestions_files\image003.jpg" />
     <Content Include="Deveres\suggestions_files\image004.jpg" />
+    <Content Include="Images\image_SemFoto.png" />
+    <Content Include="Images\label_EscolherFoto.png" />
     <Content Include="View\Leitura.aspx" />
     <Content Include="View\ListaAtividades.aspx" />
     <Content Include="Deveres\ListaAtividades_beta.html" />

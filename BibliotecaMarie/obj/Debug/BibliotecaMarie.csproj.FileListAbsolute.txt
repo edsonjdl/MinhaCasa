@@ -67,8 +67,8 @@ C:\Users\edson\Source\Repos\MinhaCasa\BibliotecaMarie\bin\Newtonsoft.Json.xml
 C:\Users\edson\Source\Repos\MinhaCasa\BibliotecaMarie\bin\Antlr3.Runtime.pdb
 C:\Users\edson\Source\Repos\MinhaCasa\BibliotecaMarie\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\edson\Source\Repos\MinhaCasa\BibliotecaMarie\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\edson\Source\Repos\MinhaCasa\BibliotecaMarie\obj\Debug\BibliotecaMarie.csprojAssemblyReference.cache
 C:\Users\edson\Source\Repos\MinhaCasa\BibliotecaMarie\obj\Debug\BibliotecaMarie.csproj.CoreCompileInputs.cache
 C:\Users\edson\Source\Repos\MinhaCasa\BibliotecaMarie\obj\Debug\BibliotecaMarie.csproj.CopyComplete
 C:\Users\edson\Source\Repos\MinhaCasa\BibliotecaMarie\obj\Debug\BibliotecaMarie.dll
 C:\Users\edson\Source\Repos\MinhaCasa\BibliotecaMarie\obj\Debug\BibliotecaMarie.pdb
+C:\Users\edson\Source\Repos\MinhaCasa\BibliotecaMarie\obj\Debug\BibliotecaMarie.csprojAssemblyReference.cache

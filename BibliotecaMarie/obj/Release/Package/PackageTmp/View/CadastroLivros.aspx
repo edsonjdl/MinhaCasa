@@ -16,6 +16,8 @@
                     <asp:TableRow>
                         <asp:TableCell ColumnSpan="2">
                             <asp:TextBox ID="tituloLivro" Style="text-align: left;" Font-Size="X-Large" Width="600px" Height="77px"  runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator id="Req1" ControlToValidate="tituloLivro" Text="Você esqueceu de escrever o título." runat=server/>
+
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
@@ -25,7 +27,10 @@
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell ColumnSpan="2">
-                            <asp:DropDownList ID="listaIdiomas" Style="padding-left: 40%;" Font-Size="XX-Large" Width="90%" Height="77px" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="listaIdiomas" Style="padding-left: 40%;" Font-Size="XX-Large" Width="90%" Height="77px" runat="server">
+                                <asp:ListItem Selected="True">Toque aqui para escolher o idioma</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator id="Req2" ControlToValidate="listaIdiomas" InitialValue="Toque aqui para escolher o idioma" Text="Você esqueceu de escolher o idioma do livro." runat=server/>
                         </asp:TableCell>
                     </asp:TableRow>
                     <asp:TableRow>
@@ -36,18 +41,26 @@
                     <asp:TableRow>
                         <asp:TableCell ColumnSpan="2">
                             <asp:TextBox ID="nPaginas" Style="text-align: center;" Font-Size="XX-Large" Width="90%" Height="77px" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator id="Req31" ControlToValidate="nPaginas" Text="Você esqueceu de colocar o número de páginas." runat=server/>
+                            <asp:CompareValidator ID="Comp32" runat="server" Text="Isso não é um número" ControlToValidate="nPaginas" Type="Integer" Operator="DataTypeCheck" />
                         </asp:TableCell>
                     </asp:TableRow>
  
 
                     <asp:TableRow ID="rowTablet1">
-                        <asp:TableCell ColumnSpan="2">
-                            Escolher uma foto:
+                        <asp:TableCell  HorizontalAlign="Center" Width="50%" >
+                            <asp:Image ID="escolherFoto" Width="50%" Height="20%" ImageUrl="~/Images/label_EscolherFoto.png" runat="server" />
+                           
                         </asp:TableCell>
+                         <%-- 
                     </asp:TableRow>
+                                
                     <asp:TableRow ID="rowTablet2">
-                        <asp:TableCell HorizontalAlign="Center" ColumnSpan="2">
+                                --%>
+                        <asp:TableCell HorizontalAlign="Center" >
+                                
                         <asp:FileUpload ID="ImageUpload" runat="server" />
+                            <asp:RequiredFieldValidator id="Req4" ControlToValidate="ImageUpload" Text="Você esqueceu de tirar a foto da capa do livro." runat=server/>
                             </asp:TableCell>
                     </asp:TableRow>
 

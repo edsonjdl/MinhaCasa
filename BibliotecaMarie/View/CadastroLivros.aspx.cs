@@ -44,7 +44,6 @@ namespace BibliotecaMarie.View
                 if (!browser.Equals(navTablet))
                 {
                     rowTablet1.Visible = false;
-                    rowTablet2.Visible = false;
 
                 }
             }
@@ -77,18 +76,14 @@ namespace BibliotecaMarie.View
                 Byte[] imgbyte = ImageUpload.FileBytes;
                 Binary Binarydta = new Binary(imgbyte);
                 img.Imagem1 = Binarydta; // this is the converted image data
-                //if (tituloLivro.Text.Length == 0)
-                //{
-                //    nomeImagem = ImageUpload.FileName;
-                //    img.filename = ImageUpload.FileName;
-                //}
 
-                //db.Imagems.InsertOnSubmit(img);
-                //db.SubmitChanges();
-                //??
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertmessage", "javascript:alert('" + img.filename + " Imagem registrada com sucesso')", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alertmessage", "javascript:alert('" + livro.name + " foi registrado com sucesso')", true);
                 tituloLivro.Text = "";
                 livro.imagem = img;
+            }
+            else
+            {
+                // Como inserir a imagem SEM FOTOS???
             }
             
 

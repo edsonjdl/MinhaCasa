@@ -9,18 +9,23 @@
     </asp:Table>
     -->
 
-        <!--
-    Código pronto alterado.
-    -->
-
+        
+    <!--Código pronto alterado.-->
+    
+     <!-- Esse trecho de código pode ser reutilizado para outros itens. Pode-se colocar placeholder para as informações das colunas. -->
     <asp:GridView ID="GrdDisplayImage" runat="server" AutoGenerateColumns="false">
         <Columns>
-            <asp:BoundField DataField="itemname" HeaderText="Image Name" />
-            <asp:TemplateField HeaderText="Image">
+            <asp:BoundField DataField="Title" HeaderText="Livro" />
+            <asp:TemplateField HeaderText="Capa do Livro">
                 <ItemTemplate>
-                    <asp:Image ID="imgdisplay" runat="server" ImageUrl='<%# "ImageHandler.ashx?ImID="+ Eval("IdImagem") %>' Height="150px" Width="150px" />
+                    <asp:Image ID="imgdisplay" runat="server" ImageUrl='<%# "ImageHandler.ashx?ImID="+ Eval("IdImagem") %>' Height="5%"  />
                 </ItemTemplate>
             </asp:TemplateField>
+            <%--
+            Adaptação para inserir nova coluna. No campo DataField, coloquei a referência do objeto Language tal como é possível
+                obter através do código. O objeto Language se refere à propriedade Language1 tal como foi criada no Database Model.
+                --%>
+            <asp:BoundField DataField="Language.Language1" HeaderText="Idioma" />
         </Columns>
     </asp:GridView>
 

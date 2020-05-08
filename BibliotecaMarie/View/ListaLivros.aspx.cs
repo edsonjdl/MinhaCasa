@@ -15,47 +15,23 @@ namespace BibliotecaMarie.View
         private const string tipo = "Livro";
         protected void Page_Load(object sender, EventArgs e)
         {
-           // if (!Page.IsPostBack)
+            // if (!Page.IsPostBack)
             //{
-                //1-Inserção das opçoes de idioma no |dropdownlist
-                var resultat = from l in db.Items
-                               where l.Type.Type1 == tipo
-                               select l;
-
-                
-
-                foreach (Item l in resultat)
-                {
-                    if (!string.IsNullOrEmpty(l.Title))
-                    {
-                        TableRow row = new TableRow();
-
-                        TableCell cell = new TableCell();
-                        cell.Text = l.Title;
-
-                        row.Cells.Add(cell);
-
-                        listaLivros.Rows.Add(row);
-
-                    }
-                }
-
-            
-        }
+            //1-Inserção das opçoes de idioma no |dropdownlist
 
 
-        // Código para trazer imagens e exibí-las numa tabela
-        public void DisplayImage()
-        {
-            var vv = from v in db.Imagems
-                     select new
-                     {
-                         v.filename,
-                         v.IdImagem,
-                     };
-            //??
-            //GrdDispalyImage.DataSource = vv;
-           // GrdDispalyImage.DataBind();
+            /*
+             * Código para trazer imagens e exibí-las numa tabela
+             * Na realidade, ao invés de adaptar uma tabela, o que faço agora é criar elementos databind/datagrid
+             */
+            var resultat = from l in db.Items
+                           where l.Type.Type1 == tipo
+                           select l;
+
+            GrdDisplayImage.DataSource = resultat;
+            GrdDisplayImage.DataBind();
+
+
         }
 
     }
